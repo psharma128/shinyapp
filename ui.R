@@ -34,8 +34,9 @@ shinyUI(
         tabItem(
           tabName = "Country_Statistics",
           h2("How do countries stack up against each other?"),
-          fluidRow(column(6,selectizeInput('country1', 'First country:', choices=unique(dataset$Name), selected='World')),
-                   column(6,selectizeInput('country2', 'Second country:', choices=unique(dataset$Name), selected='United States'))
+          fluidRow(column(4,selectizeInput('country1', 'First Country:', choices=unique(dataset$Name), selected='World')),
+                   column(4,selectizeInput('country2', 'Second Country:', choices=unique(dataset$Name), selected='United States')),
+                   column(4,checkboxInput('line', 'Line Chart', value=FALSE))
           ),
           fluidRow(
             plotlyOutput('country_comparison')
